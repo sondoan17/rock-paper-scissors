@@ -1,0 +1,35 @@
+
+h1, body {
+  font-size: 5rem;
+  text-align: center;
+}
+p {
+  font-size: 2rem;
+  text-align: center;
+}
+.oxygen-light {
+  font-family: "Oxygen", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.satisfy-regular {
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.container {
+  text-align: center;
+}
+.rock,
+.paper,
+.scissors {
+  width: 7rem;
+  height: 7rem;
+  font-size: 2rem;
+  margin: 1rem;
+}
+.reset{
+    width: 7rem;
+    height: 2.5rem;
+    font-size: 2rem;
+}
