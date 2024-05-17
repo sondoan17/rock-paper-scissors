@@ -2,29 +2,68 @@ var playerPoints = sessionStorage.getItem("playerPoints") || 0;
 var botPoints = sessionStorage.getItem("botPoints") || 0;
 function gameRPS(playerChoiceValue) {
   var botChoiceValue = Math.floor(Math.random() * 3);
+  if (botChoiceValue === 0) {
+    botChoice = "👊";
+  } else {
+    if (botChoiceValue === 1) {
+      botChoice = "🤚";
+    } else {
+      botChoice = "✌️";
+    }
+  }
+  if (playerChoiceValue === 0) {
+    playerChoice = "👊";
+  } else {
+    if (playerChoiceValue === 1) {
+      playerChoice = "🤚";
+    } else {
+      playerChoice = "✌️";
+    }
+  }
   if (botChoiceValue === playerChoiceValue) {
-    document.querySelector(".result").innerHTML = "Draw!";
+    document.querySelector(".result").innerHTML =
+      "You choose " + playerChoice + ", bot choose " + botChoice + ". Draw!";
   } else {
     if (botChoiceValue > playerChoiceValue) {
       if (playerChoiceValue == 0 && botChoiceValue == 2) {
-        document.querySelector(".result").innerHTML = "You Won!";
+        document.querySelector(".result").innerHTML =
+          "You choose " +
+          playerChoice +
+          ", bot choose " +
+          botChoice +
+          " .You Won!";
         playerPoints++;
         document.querySelector(".point").innerHTML =
           "Player: " + playerPoints + " - Bot: " + botPoints;
       } else {
-        document.querySelector(".result").innerHTML = "You Lose!";
+        document.querySelector(".result").innerHTML =
+          "You choose " +
+          playerChoice +
+          ", bot choose " +
+          botChoice +
+          " .You Lose!";
         botPoints++;
         document.querySelector(".point").innerHTML =
           "Player: " + playerPoints + " - Bot: " + botPoints;
       }
     } else if (botChoiceValue < playerChoiceValue) {
       if (botChoiceValue == 0 && playerChoiceValue == 2) {
-        document.querySelector(".result").innerHTML = "You Lose!";
+        document.querySelector(".result").innerHTML =
+          "You choose " +
+          playerChoice +
+          ", bot choose " +
+          botChoice +
+          " .You Lose!";
         botPoints++;
         document.querySelector(".point").innerHTML =
           "Player: " + playerPoints + " - Bot: " + botPoints;
       } else {
-        document.querySelector(".result").innerHTML = "You Won!";
+        document.querySelector(".result").innerHTML =
+          "You choose " +
+          playerChoice +
+          ", bot choose " +
+          botChoice +
+          " .You Won!";
         playerPoints++;
         document.querySelector(".point").innerHTML =
           "Player: " + playerPoints + " - Bot: " + botPoints;
@@ -33,6 +72,9 @@ function gameRPS(playerChoiceValue) {
   }
   sessionStorage.setItem("playerPoints", playerPoints);
   sessionStorage.setItem("botPoints", botPoints);
+  if (playerPoints == 10) {
+    alert("u wibu tcon teacon");
+  }
 }
 function resetPoints() {
   sessionStorage.removeItem("playerPoints");
